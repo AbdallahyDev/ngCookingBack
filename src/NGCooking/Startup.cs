@@ -18,17 +18,25 @@ namespace NGCooking
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app) 
         {
-            app.UseIISPlatformHandler();
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            //app.UseIISPlatformHandler(); 
+            app.UseDefaultFiles(); 
+            app.UseStaticFiles();    
+            //app.Run(async (context) =>
+            //{
+            //    var html = @"<!DOCTYPE html>
+            //    <html> 
+            //    <head></head>
+            //    <body>
+            //     My first page in asp .net 5!
+            //    </html> 
+            //    ";
+            //    await context.Response.WriteAsync(html); 
+            //});
         }
 
         // Entry point for the application.
-        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
+        public static void Main(string[] args) => WebApplication.Run<Startup>(args); 
     }
 }
