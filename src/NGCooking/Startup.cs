@@ -6,6 +6,7 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
+using NGCooking.Models;
 
 namespace NGCooking
 {
@@ -15,6 +16,7 @@ namespace NGCooking
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddEntityFramework().AddSqlServer().AddDbContext<WorldContext>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -25,13 +27,7 @@ namespace NGCooking
             app.UseStaticFiles();    
             //app.Run(async (context) =>
             //{
-            //    var html = @"<!DOCTYPE html>
-            //    <html> 
-            //    <head></head>
-            //    <body>
-            //     My first page in asp .net 5!
-            //    </html> 
-            //    ";
+            //  
             //    await context.Response.WriteAsync(html); 
             //});
         }
